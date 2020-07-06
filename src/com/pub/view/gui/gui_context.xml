@@ -22,6 +22,8 @@
 
 	<bean id="bookDAOOracle"
 		class="com.pub.model.product.BookDAOOracle" />
+	<bean id="bookDAOMysql"
+		class="com.pub.model.product.BookDAOMysql" />
 
 	<!-- 프레임 정의 -->
 	<bean id="bookMain" class="com.pub.view.gui.BookMain">
@@ -29,7 +31,7 @@
 		<property name="t_pub" ref="t_pub"></property>
 		<property name="t_price" ref="t_price"></property>
 		<property name="bt" ref="bt"></property>
-		<property name="bookDAO" ref="bookDAOOracle" />
+		<property name="bookDAO" ref="bookDAOMysql" />
 	</bean>
 
 </beans>

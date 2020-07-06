@@ -10,14 +10,21 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
+			<!-- 
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
 				<property name="username" value="c##java" />
+				<property name="password" value="1234" />
+				 -->
+				 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://@localhost:3306/springdb?serverTimezone=UTC" />
+				<property name="username" value="root" />
 				<property name="password" value="1234" />
 			</dataSource>
 		</environment>
 	</environments>
 	<mappers>
 		<mapper resource="com/pub/mybatis/oracle/BookMapper.xml" />
+		<mapper resource="com/pub/mybatis/mysql/BookMapper.xml" />
 	</mappers>
 </configuration>

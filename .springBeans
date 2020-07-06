@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/com/pub/view/gui/gui_context.xml</config>
+		<config>WebContent/WEB-INF/front.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

@@ -12,7 +12,7 @@ public class BookDAOMysql implements BookDAO{
 	public List selectAll() {
 		List list = null;
 		SqlSession sqlSession = manager.getSqlSession();
-		list = sqlSession.selectList("Book.selectAll");
+		list = sqlSession.selectList("MysqlBook.selectAll");
 		manager.closeSession(sqlSession);
 		return list;
 	}
@@ -20,7 +20,7 @@ public class BookDAOMysql implements BookDAO{
 	public int insert(Book book) {
 		int result = 0;
 		SqlSession sqlSession = manager.getSqlSession();
-		result = sqlSession.insert("Book",book);
+		result = sqlSession.insert("MysqlBook.insert",book);
 		sqlSession.commit();
 		manager.closeSession(sqlSession);
 		return result;
