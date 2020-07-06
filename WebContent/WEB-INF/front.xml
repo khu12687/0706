@@ -10,4 +10,18 @@
 	</bean>
 	<!-- 웹에서 사용할 객체들을 bean으로 등록할 수 있다 -->
 	<bean class="com.pub.controller.test.TestController" />
+	
+	<!-- mybatisConfigManager는 싱글턴 패턴으로 되어 있으므로,
+			factory-method  -->
+	<bean id="mybatisConfigManager" class="com.pub.mybatis.MybatisConfigManager"
+			factory-method="getInstance"/>
+	
+	<bean id="noticeDAO" class="com.pub.model.notice.NoticeDAO" >
+		<constructor-arg name="manager" ref="mybatisConfigManager"></constructor-arg>
+	</bean>
+	
+	<!-- Notice 게시판 요청을 처리할 컨트롤러 등록  -->
+	<bean id="noticeController" class="com.pub.controller.notice.NoticeController">
+		<property name="noticeDAO" ref="noticeDAO"></property>
+	</bean>
 </beans>
