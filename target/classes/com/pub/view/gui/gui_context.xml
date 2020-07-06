@@ -3,5 +3,33 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!--빈 등록!! 여기에 태그로 등록된 빈들은, 스프링 ApplicationContext 에 의해 인스턴스가 생성되며 이, 생성된 
+		빈객체간의 관계도 현재 xml에서 weaving(엮는거) 할수 있다 -->
+	<bean id="t_title" class="javax.swing.JTextField">
+		<constructor-arg index="0" value="" />
+		<constructor-arg index="1" value="15" />
+	</bean>
+	<bean id="t_pub" class="javax.swing.JTextField">
+		<!-- 매개변수가 int 형인 생성자를 호출 -->
+		<constructor-arg type="int" value="15" />
+	</bean>
+	<bean id="t_price" class="javax.swing.JTextField">
+		<constructor-arg type="int" value="15" />
+	</bean>
+	<bean id="bt" class="javax.swing.JButton">
+		<constructor-arg index="0" value="등록" />
+	</bean>
+
+	<bean id="bookDAOOracle"
+		class="com.pub.model.product.BookDAOOracle" />
+
+	<!-- 프레임 정의 -->
+	<bean id="bookMain" class="com.pub.view.gui.BookMain">
+		<property name="t_title" ref="t_title"></property>
+		<property name="t_pub" ref="t_pub"></property>
+		<property name="t_price" ref="t_price"></property>
+		<property name="bt" ref="bt"></property>
+		<property name="bookDAO" ref="bookDAOOracle" />
+	</bean>
 
 </beans>

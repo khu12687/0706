@@ -4,17 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.pub.model.product.Book" alias="Book"/>
+		<typeAlias type="com.pub.model.product.Book" alias="Book" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
-			<dataSource type="JNDI">
-				<property name="data_source" value="java:comp/env/jdbc/oracle" />
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+				<property name="username" value="c##java" />
+				<property name="password" value="1234" />
 			</dataSource>
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/pub/mybatis/BookMapper.xml" />
+		<mapper resource="com/pub/mybatis/oracle/BookMapper.xml" />
 	</mappers>
 </configuration>

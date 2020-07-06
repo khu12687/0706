@@ -2,27 +2,8 @@ package com.pub.model.product;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-
-import com.pub.mybatis.MybatisConfigManager;
-
-public class BookDAO {
-	MybatisConfigManager manager = MybatisConfigManager.getInstance();
-	
-	public List selectAll() {
-		List list = null;
-		SqlSession sqlSession = manager.getSqlSession();
-		list = sqlSession.selectList("Book.selectAll");
-		manager.closeSession(sqlSession);
-		return list;
-	}
-	
-	public int insert(Book book) {
-		int result = 0;
-		SqlSession sqlSession = manager.getSqlSession();
-		result = sqlSession.insert("Book",book);
-		sqlSession.commit();
-		manager.closeSession(sqlSession);
-		return result;
-	}
+//Book 테이블과 CRUD를 수행할 모든 DAO의 최상위 객체 정의!!
+public interface BookDAO {
+	public List selectAll();
+	public int insert(Book book);
 }

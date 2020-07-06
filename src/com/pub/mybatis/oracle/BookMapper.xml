@@ -8,7 +8,10 @@
 	
 	<insert id="insert" parameterType="Book">
 		insert into book(book_id,title,pub,price)
-		values(seq_book.nextval, #{title}, #{pub}, #{price} 
+		values(seq_book.nextval,#{title},#{pub},#{price})
+		
+		
 	</insert>
+
 
 </mapper>
